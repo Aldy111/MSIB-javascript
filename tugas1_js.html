@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabel Pegawai</title>
+            <script language="javascript">
+/*
+Diketahui:
+pegawai: Ridwan
+jabatan: manager
+status: menikah 
+Tugas: 
+Cetak Data Pegawai berbentuk tabel:
+Judul Kolom gunakan thead
+Data2 gunakan tbody 
+Nama Pegawai, Jabatan, Status, 
+Gaji Pokok(if): Manager=>15 jt, Asisten Manager=>10 jt, Staff=>5 jt 
+Tunjangan Jabatan: 15% dari gapok
+BPJS: 10% dari gapok
+Tunjangan Keluarga (ternary): dilihat dari status yg sudah menikah =>20% dari gapok
+Total Gaji: jumlahlahkan seluruh element gaji (gunakan tfoot)
+Format pengumpulan tugas:
+Disimpan di githubnya masing2:
+contoh:
+buat repo baru (javascript) -> file tugas di push di repo tsb
+lalu linknya dlm txt di assign ke LMS
+*/
+let pegawai = "Ridwan";
+let jabatan = "manager";
+let status = "menikah";
+
+if (jabatan=='manager') {
+    gapok = 15000000;
+}else if (jabatan=='asisten_manager') {
+    gapok = 10000000;
+}else if (jabatan=='staff') {
+    gapok = 5000000;
+}else{
+    gapok = 0;
+}
+
+let tunjangan_jabatan = gapok * 0.15 ;
+let BPJS = gapok * 0.1 ;
+
+let tunjangan_keluarga = (status=='menikah') ? 0.2 * gapok : 0;
+let total_gaji = gapok + tunjangan_jabatan + tunjangan_keluarga + BPJS ;
+
+/* document.write(
+    "<thead>Data Gaji Pegawai<thead>" + 
+    "<tbody> Nama Pegawai: </tbody>" + pegawai +
+    "<tbody> Jabatan: </tbody>" + jabatan +
+    "<tbody> status: </tbody>" + status + 
+    "<tbody> Gaji Pokok: </tbody>" + gapok +
+    "<tbody> Tunjangan Jabatan: </tbody>" + tunjangan_jabatan +
+    "<tbody> BPJS: </tbody>" + BPJS +
+    "<tbody> Tunjangan Keluarga: </tbody>" + tunjangan_keluarga +
+    "<tfoot> Total Gaji: </tfoot>" + total_gaji
+) */
+</script>
+<style>
+    thead {
+        background-color: blueviolet;
+        color: white;
+    }
+    th {
+        padding: 10px;
+    }
+    td {
+        text-align: center;
+        background-color: aqua;
+    }
+    tfoot {
+        background-color: pink;
+    }
+</style>
+</head>
+<body>
+    <table border="1" align="center">
+        <thead>
+            <tr>
+                <th colspan="7">Data Pegawai</th>
+            </tr>
+            <tr>
+                <th>Nama Lengkap</th>
+                <th>Jabatan</th>
+                <th>Status</th>
+                <th>Gaji Pokok</th>
+                <th>Tunjangan Jabatan</th>
+                <th>Tunjangan Keluarga</th>
+                <th>BPJS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <script>
+                        document.write(pegawai)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(jabatan)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(status)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(gapok)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(tunjangan_jabatan)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(tunjangan_keluarga)
+                    </script>
+                </td>
+                <td>
+                    <script>
+                        document.write(BPJS)
+                    </script>
+                </td>
+
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                    Total Gaji
+                </th>
+                <th colspan="6">
+                    <script>
+                        document.write(total_gaji)
+                    </script>
+                </th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
